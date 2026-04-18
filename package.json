@@ -1,0 +1,13 @@
+{
+  "name": "conj-visualization",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static HTML visualization of Conjecture 0.5 and Corollary 1.5.",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./dist/tailwind.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./dist/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

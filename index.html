@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conjecture 0.5 &amp; Corollary 1.5</title>
+    <link rel="stylesheet" href="./dist/tailwind.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <div class="min-h-screen bg-neutral-50 text-neutral-900 p-4 sm:p-8 font-sans">
+      <div class="max-w-[100rem] mx-auto flex flex-col md:grid md:grid-cols-2 gap-8">
+        <!-- LEFT COLUMN: Corollary 1.5 -->
+        <header class="flex flex-col gap-4 md:col-start-1 md:row-start-1">
+          <h1 class="text-3xl font-bold tracking-tight text-neutral-900">
+            Corollary 1.5
+          </h1>
+          <div class="flex-1 prose prose-neutral max-w-none text-neutral-700 bg-white p-6 rounded-xl shadow-sm border border-neutral-200">
+            <p class="mb-4">
+              <strong>Corollary 1.5.</strong> Let <span data-math="X" data-display="inline"></span> be a projective variety of dimension <span data-math="n" data-display="inline"></span>. Suppose <span data-math="X" data-display="inline"></span> has pre-<span data-math="m" data-display="inline"></span>-rational singularities (or more generally satisfies condition <span data-math="D_m" data-display="inline"></span>), with <span data-math="2m+2\le n" data-display="inline"></span>, and is normal if <span data-math="m\ge 0" data-display="inline"></span>. Then:
+            </p>
+            <p class="mb-2">(i) If <span data-math="i\le n" data-display="inline"></span>, then</p>
+            <div class="my-4">
+              <span data-math="H^{p,j-p}\, \operatorname{gr}^W_j H^i(X,\mathbf{Q}) = 0," data-display="block"></span>
+            </div>
+            <p class="mb-4">for all <span data-math="p\le m" data-display="inline"></span> and <span data-math="j\le i-1" data-display="inline"></span>.</p>
+            <p class="mb-4">In particular, if <span data-math="i\le n" data-display="inline"></span>, then <span data-math="H^i(X,\mathbf{Q})" data-display="inline"></span> has weights <span data-math="\ge \min\{2m+2,i\}" data-display="inline"></span>.</p>
+
+            <p class="mb-2">(ii) If <span data-math="n\le i" data-display="inline"></span>, then</p>
+            <div class="my-4">
+              <span data-math="H^{p,j-p}\, \operatorname{gr}^W_j H^i(X,\mathbf{Q}) = 0," data-display="block"></span>
+            </div>
+            <p class="mb-4">for all <span data-math="p\le i-n+m" data-display="inline"></span> and <span data-math="j\le i-1" data-display="inline"></span>.</p>
+            <p>In particular, if <span data-math="i\ge n" data-display="inline"></span>, then <span data-math="H^i(X,\mathbf{Q})" data-display="inline"></span> has weights <span data-math="\ge \min\{2i-2n+2m+2,i\}" data-display="inline"></span>.</p>
+          </div>
+        </header>
+
+        <section class="bg-white p-6 rounded-xl shadow-sm border border-neutral-200 md:col-start-1 md:row-start-2 h-fit">
+          <h2 class="text-xl font-semibold mb-4">Parameters</h2>
+          <div class="grid gap-4 md:grid-cols-2 md:items-start">
+            <div class="flex flex-wrap gap-6">
+              <div class="space-y-2">
+                <label for="n-input" class="block text-sm font-medium text-neutral-700">
+                  Dimension <span data-math="n" data-display="inline"></span>
+                </label>
+                <input
+                  id="n-input"
+                  type="number"
+                  min="0"
+                  value="4"
+                  class="block w-32 rounded-md border-neutral-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm px-3 py-2 border"
+                />
+              </div>
+              <div class="space-y-2">
+                <label for="m-input" class="block text-sm font-medium text-neutral-700">
+                  Condition <span data-math="m" data-display="inline"></span>
+                </label>
+                <input
+                  id="m-input"
+                  type="number"
+                  value="0"
+                  class="block w-32 rounded-md border-neutral-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm px-3 py-2 border"
+                />
+              </div>
+            </div>
+
+            <div class="md:flex md:justify-end">
+              <button
+                id="magic-button"
+                aria-label="Find vanishing pairs"
+                title="Find vanishing pairs"
+                class="bg-neutral-200 hover:bg-neutral-300 text-neutral-700 p-2 rounded-md transition-colors inline-flex items-center justify-center border border-neutral-300"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
+              </button>
+            </div>
+          </div>
+          <div id="nm-warning"></div>
+        </section>
+
+        <div id="magic-dialog"></div>
+
+        <section class="bg-white p-6 rounded-xl shadow-sm border border-neutral-200 md:col-span-2 md:row-start-3">
+          <h2 class="text-xl font-semibold mb-4">Conjecture Diagram</h2>
+          <p class="text-sm text-neutral-500 mb-3">
+            Entries <span data-math="(p,q)\mapsto \operatorname{gr}^W_q H^{p+q}(X,\mathbf{Q})" data-display="inline"></span>. Green entries are forced zero by Conjecture 0.5.
+          </p>
+          <p class="text-sm text-neutral-500 mb-3">
+            Cells marked <span class="font-semibold text-blue-700">&#10003;</span> have Corollary 1.5 vanishing predictions inside that box; the displayed bound is the Corollary 1.5 cutoff for the Hodge <span data-math="p" data-display="inline"></span> index.
+          </p>
+          <div id="conjecture-diagram"></div>
+        </section>
+
+        <div class="space-y-8 md:col-start-1 md:row-start-4">
+          <section class="bg-white p-6 rounded-xl shadow-sm border border-neutral-200">
+            <h2 class="text-xl font-semibold mb-4">Weights of <span data-math="H^i" data-display="inline"></span></h2>
+            <div id="weights-table"></div>
+          </section>
+
+          <section class="bg-white p-6 rounded-xl shadow-sm border border-neutral-200">
+            <h2 class="text-xl font-semibold mb-4">Vanishing of <span data-math="H^{p,j-p}" data-display="inline"></span></h2>
+            <div id="vanishing-table"></div>
+          </section>
+        </div>
+
+        <!-- RIGHT COLUMN: Conjecture 0.5 -->
+        <header class="flex flex-col gap-4 md:col-start-2 md:row-start-1">
+          <h1 class="text-3xl font-bold tracking-tight text-neutral-900">
+            Conjecture 0.5
+          </h1>
+          <div class="flex-1 prose prose-neutral max-w-none text-neutral-700 bg-white p-6 rounded-xl shadow-sm border border-neutral-200">
+            <p class="mb-4">
+              <strong>Conjecture 0.5.</strong> If <span data-math="X" data-display="inline"></span> is projective and <span data-math="j" data-display="inline"></span> and <span data-math="k" data-display="inline"></span> are nonnegative integers, then we have
+            </p>
+            <div class="my-4">
+              <span data-math="H^k_{\mathrm{cdh}}(X,\mathbf{Q}(j))=0" data-display="block"></span>
+            </div>
+            <p class="mb-4">if</p>
+            <div class="my-4">
+              <span data-math="W_{b-k+2j} H^b(X,\mathbf{Q})=0\qquad\text{for all } b\le k." data-display="block"></span>
+            </div>
+            <p class="mb-4">
+              More precisely, it should suffice to assume
+            </p>
+            <div class="my-4">
+              <span data-math="H^{r,s}\, \operatorname{gr}^W_{b-c} H^b(X,\mathbf{Q}) = 0" data-display="block"></span>
+            </div>
+            <p>
+              for all <span data-math="b\le k" data-display="inline"></span>, <span data-math="c\ge k-2j" data-display="inline"></span>, and <span data-math="s\le b+j-k" data-display="inline"></span>.
+            </p>
+          </div>
+        </header>
+
+        <section class="bg-white p-6 rounded-xl shadow-sm border border-neutral-200 md:col-start-2 md:row-start-2 h-fit">
+          <h2 class="text-xl font-semibold mb-4">Parameters</h2>
+          <div class="flex flex-wrap gap-6">
+            <div class="space-y-2">
+              <label for="k-input" class="block text-sm font-medium text-neutral-700">
+                Value of <span data-math="k" data-display="inline"></span>
+              </label>
+              <input
+                id="k-input"
+                type="number"
+                min="0"
+                value="2"
+                class="block w-32 rounded-md border-neutral-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm px-3 py-2 border"
+              />
+            </div>
+            <div class="space-y-2">
+              <label for="j-input" class="block text-sm font-medium text-neutral-700">
+                Value of <span data-math="j" data-display="inline"></span>
+              </label>
+              <input
+                id="j-input"
+                type="number"
+                min="0"
+                value="1"
+                class="block w-32 rounded-md border-neutral-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm px-3 py-2 border"
+              />
+            </div>
+          </div>
+        </section>
+
+        <div class="space-y-8 md:col-start-2 md:row-start-4">
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-neutral-200">
+            <h2 class="text-xl font-semibold mb-4">Coarse Conditions</h2>
+            <p class="text-sm text-neutral-500 mb-4">
+              Required: <span data-math="W_{b-k+2j} H^b(X,\mathbf{Q})=0" data-display="inline"></span> for all <span data-math="b \le k" data-display="inline"></span>.
+            </p>
+            <div id="coarse-conditions"></div>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow-sm border border-neutral-200">
+            <h2 class="text-xl font-semibold mb-4">Precise Conditions</h2>
+            <p class="text-sm text-neutral-500 mb-4">
+              Required: <span data-math="H^{r,s}\, \operatorname{gr}^W_{b-c} H^b(X,\mathbf{Q}) = 0" data-display="inline"></span> for all <span data-math="b\le k" data-display="inline"></span>, <span data-math="c\ge k-2j" data-display="inline"></span>, and <span data-math="s\le b+j-k" data-display="inline"></span>.
+            </p>
+            <div id="precise-conditions"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
