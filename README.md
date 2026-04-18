@@ -1,6 +1,6 @@
 # Conjecture Visualization
 
-A standalone static HTML visualization of **Conjecture 0.5** and **Corollary 1.5**. Ported from the React `hidden_page.tsx` component.
+A visualization of **Conjecture 0.5** and **Corollary 1.5**.
 
 ## Files
 
