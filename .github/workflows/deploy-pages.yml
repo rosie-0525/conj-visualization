@@ -31,8 +31,9 @@ jobs:
 
       - name: Stage site files
         run: |
-          mkdir -p _site
-          cp index.html _site/index.html
+          mkdir -p _site/dist
+          cp index.html app.js _site/
+          cp dist/tailwind.css _site/dist/tailwind.css
           touch _site/.nojekyll
 
       - name: Upload Pages artifact
